@@ -1,9 +1,49 @@
 var express = require('express');
 var router = express.Router();
+var UserCtrlr = require('../controllers/usersCtrlr');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-  res.send('respond with a resource');
+  var db = req.db;
+
+  //parse http service request
+  try {
+    var query = dbutils.ParseMongoQueryParams(req.query);
+    console.log("Query str:", query)
+  } catch (e) {
+    throw e;
+  }
+
+  //get a dataset controller and get some results
+  (new UserCtrlr).find(db, query, function (results) {
+
+    if (req.accepts('html')) {
+      res.render('collection', { "title": "users", "results": results });
+    } else {
+      res.send(results);
+    }
+  });
 });
+
+/*
+ * POST to users creates a new dataset
+ * accept:  json or url-form-encoded
+ */
+router.post('/', function(req, res) {
+
+  var userobj = {'username': "user1", 'isDatasetAuthor': true};
+  (new UserCtrlr).insert(req.db, userobj, req.body, function(results) {
+    res.statusCode=201;
+    console.log("POST RESULT1: " + results);
+    if (req.accepts('html')) {
+      res.send(results);
+    } else {
+      var obj = { 'id': results};
+      console.log("POST RESULT: " + results);
+      res.send(obj);
+    }
+  });
+});
+
 
 module.exports = router;
