@@ -29,10 +29,14 @@ router.get('/', function(req, res) {
  * POST to users creates a new dataset
  * accept:  json or url-form-encoded
  */
-router.post('/', function(req, res) {
+router.put('/:userid', function(req, res) {
+
+  var bodyobj = JSON.parser(req.body);
+
+  var newUserObj = { email: req.param("userid"), name: bodyobj.name };
 
   var userobj = {'username': "user1", 'isDatasetAuthor': true};
-  (new UserCtrlr).insert(req.db, userobj, req.body, function(results) {
+  (new UserCtrlr).insert(req.db, userobj, newUserObj, function(results) {
     res.statusCode=201;
     console.log("POST RESULT1: " + results);
     if (req.accepts('html')) {
