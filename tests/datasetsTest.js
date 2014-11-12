@@ -12,9 +12,8 @@ describe('datasets api', function(){
     var server = {};
 
     before(function(){
-        server = http.createServer(app).listen(3001);
+      server = http.createServer(app).listen(3001);
     });
-
 
     it('can get a list of datasets', function(done) {
         api.get('/datasets')

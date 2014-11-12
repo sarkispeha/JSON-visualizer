@@ -15,6 +15,7 @@ function getDatasets(req, res) {
     //parse http service request
     try {
         var query = dbutils.ParseMongoQueryParams(req.query);
+console.log("Query str:", query)
     } catch (e) {
         throw e;
     }

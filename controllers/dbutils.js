@@ -46,6 +46,9 @@ function ParseMongoQueryParams(params) {
             throw e;
         }
     }
+    else {
+      queryObject.select = {};
+    }
 
     return queryObject;
 }

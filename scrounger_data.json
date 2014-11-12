@@ -1,0 +1,40 @@
+{
+  "user":             {
+                        _id     : "<username>",
+                        "name"  : "<first name> <last name>",
+                        "email" : "<email address>"
+                      },
+  "group":            {
+                        _id          : "<gid>",
+                        "invite_url" : "<group invitation url>"
+                      },
+  "groupuser":        {
+                        group_id      : "<gid>",
+                        user_id       : "<username>",
+                        "did_connect" : "<true/false>"
+                      },
+  "groupgame":        {
+                        _id            : "<ggid>",
+                        group_id       : "<gid>",
+                        "is_active"    : "<true/false>",
+                        "date_started" : "<start date>",
+                        "date_ended"   : "<end date>"
+                      },
+  "groupgameart":     {
+                        _id           : "<ggartid>",
+                        groupgame_id  : "<ggid>",
+                        art_id        : "<artid>"
+                      },
+  "groupgameartuser": {
+                        groupgameart_id : "<ggartid>",
+                        user_id         : "<username>",
+                        "was_found"     : "<true/false>",
+                        "photo_path"    : "<url to photo location>",
+                        "date_found"    : "<date/time found>"
+                      },
+  "groupchat":        {
+                        group_id        : "<gid>",
+                        user_id         : "<username>",
+                        "message"       : "<message sent by the user>"
+                      }
+}

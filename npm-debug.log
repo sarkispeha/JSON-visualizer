@@ -1,29 +1,327 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'test' ]
-2 info using npm@2.0.2
-3 info using node@v0.10.32
-4 verbose node symlink /usr/local/bin/node
-5 verbose stack Error: Failed to parse json
-5 verbose stack Unexpected string
-5 verbose stack     at parseError (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:378:25)
-5 verbose stack     at parseJson (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:85:51)
-5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:59:33
-5 verbose stack     at evalmachine.<anonymous>:271:14
-5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:102:5
-5 verbose stack     at Object.oncomplete (evalmachine.<anonymous>:107:15)
-6 verbose cwd /Users/cellis/projects/odp
-7 error Darwin 13.4.0
-8 error argv "node" "/usr/local/bin/npm" "test"
-9 error node v0.10.32
-10 error npm  v2.0.2
-11 error file /Users/cellis/projects/odp/package.json
-12 error code EJSONPARSE
-13 error Failed to parse json
-13 error Unexpected string
-14 error File: /Users/cellis/projects/odp/package.json
-15 error Failed to parse package.json data.
-15 error package.json must be actual JSON, not just JavaScript.
-15 error
-15 error This is not a bug in npm.
-15 error Tell the package author to fix their package.json file. JSON.parse
-16 verbose exit [ 1, true ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'mongoose' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink /usr/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'mongoose', null ]
+7 verbose cache add name=undefined spec="mongoose" args=["mongoose",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'mongoose',
+8 verbose parsed url   path: 'mongoose',
+8 verbose parsed url   href: 'mongoose' }
+9 silly lockFile f25dbdd3-mongoose mongoose
+10 verbose lock mongoose /home/sshekhar/.npm/f25dbdd3-mongoose.lock
+11 silly lockFile f25dbdd3-mongoose mongoose
+12 silly lockFile f25dbdd3-mongoose mongoose
+13 verbose addNamed [ 'mongoose', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 3bb0fc31-mongoose mongoose@
+16 verbose lock mongoose@ /home/sshekhar/.npm/3bb0fc31-mongoose.lock
+17 silly addNameRange { name: 'mongoose', range: '*', hasData: false }
+18 verbose request where is /mongoose
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id 8f7ad7d3285e7864
+21 verbose url raw /mongoose
+22 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose' ]
+23 verbose url resolved https://registry.npmjs.org/mongoose
+24 verbose request where is https://registry.npmjs.org/mongoose
+25 info trying registry request attempt 1 at 16:42:40
+26 verbose etag "2DSF5Q9HKLGBGR3MVKTENOC1P"
+27 http GET https://registry.npmjs.org/mongoose
+28 http 200 https://registry.npmjs.org/mongoose
+29 silly registry.get cb [ 200,
+29 silly registry.get   { date: 'Mon, 03 Nov 2014 23:42:41 GMT',
+29 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly registry.get     etag: '"4NI9W5XYPIMVL4M3AVTF6GMN7"',
+29 silly registry.get     'content-type': 'application/json',
+29 silly registry.get     'cache-control': 'max-age=60',
+29 silly registry.get     'content-length': '275026',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '0',
+29 silly registry.get     'x-served-by': 'cache-dfw1835-DFW',
+29 silly registry.get     'x-cache': 'HIT',
+29 silly registry.get     'x-cache-hits': '1',
+29 silly registry.get     'x-timer': 'S1415058161.243199,VS0,VE53',
+29 silly registry.get     vary: 'Accept',
+29 silly registry.get     'keep-alive': 'timeout=10, max=50',
+29 silly registry.get     connection: 'Keep-Alive' } ]
+30 silly addNameRange number 2 { name: 'mongoose', range: '*', hasData: true }
+31 silly addNameRange versions [ 'mongoose',
+31 silly addNameRange   [ '0.0.1',
+31 silly addNameRange     '0.0.2',
+31 silly addNameRange     '0.0.3',
+31 silly addNameRange     '0.0.4',
+31 silly addNameRange     '0.0.5',
+31 silly addNameRange     '1.0.0',
+31 silly addNameRange     '1.0.1',
+31 silly addNameRange     '1.0.2',
+31 silly addNameRange     '0.0.6',
+31 silly addNameRange     '1.0.3',
+31 silly addNameRange     '1.0.4',
+31 silly addNameRange     '1.0.5',
+31 silly addNameRange     '1.0.6',
+31 silly addNameRange     '1.0.7',
+31 silly addNameRange     '1.0.8',
+31 silly addNameRange     '1.0.10',
+31 silly addNameRange     '1.0.11',
+31 silly addNameRange     '1.0.12',
+31 silly addNameRange     '1.0.13',
+31 silly addNameRange     '1.0.14',
+31 silly addNameRange     '1.0.15',
+31 silly addNameRange     '1.0.16',
+31 silly addNameRange     '1.1.0',
+31 silly addNameRange     '1.1.1',
+31 silly addNameRange     '1.1.2',
+31 silly addNameRange     '1.1.3',
+31 silly addNameRange     '1.1.4',
+31 silly addNameRange     '1.1.5',
+31 silly addNameRange     '1.1.6',
+31 silly addNameRange     '1.1.7',
+31 silly addNameRange     '1.1.8',
+31 silly addNameRange     '1.1.9',
+31 silly addNameRange     '1.1.10',
+31 silly addNameRange     '1.1.11',
+31 silly addNameRange     '1.1.12',
+31 silly addNameRange     '1.1.13',
+31 silly addNameRange     '1.1.14',
+31 silly addNameRange     '1.1.15',
+31 silly addNameRange     '1.1.16',
+31 silly addNameRange     '1.1.17',
+31 silly addNameRange     '1.1.18',
+31 silly addNameRange     '1.1.19',
+31 silly addNameRange     '1.1.20',
+31 silly addNameRange     '1.1.21',
+31 silly addNameRange     '1.1.22',
+31 silly addNameRange     '1.1.23',
+31 silly addNameRange     '1.1.24',
+31 silly addNameRange     '1.1.25',
+31 silly addNameRange     '1.2.0',
+31 silly addNameRange     '1.3.0',
+31 silly addNameRange     '1.3.1',
+31 silly addNameRange     '1.3.2',
+31 silly addNameRange     '1.3.3',
+31 silly addNameRange     '1.3.4',
+31 silly addNameRange     '1.3.5',
+31 silly addNameRange     '1.3.6',
+31 silly addNameRange     '1.3.7',
+31 silly addNameRange     '1.4.0',
+31 silly addNameRange     '1.5.0',
+31 silly addNameRange     '1.6.0',
+31 silly addNameRange     '1.7.2',
+31 silly addNameRange     '1.7.3',
+31 silly addNameRange     '1.7.4',
+31 silly addNameRange     '1.8.0',
+31 silly addNameRange     '1.8.1',
+31 silly addNameRange     '1.8.2',
+31 silly addNameRange     '1.8.3',
+31 silly addNameRange     '1.8.4',
+31 silly addNameRange     '2.0.0',
+31 silly addNameRange     '2.0.1',
+31 silly addNameRange     '2.0.2',
+31 silly addNameRange     '2.0.3',
+31 silly addNameRange     '2.0.4',
+31 silly addNameRange     '2.1.0',
+31 silly addNameRange     '2.1.1',
+31 silly addNameRange     '2.1.2',
+31 silly addNameRange     '2.1.3',
+31 silly addNameRange     '2.1.4',
+31 silly addNameRange     '2.2.0',
+31 silly addNameRange     '2.2.1',
+31 silly addNameRange     '2.2.2',
+31 silly addNameRange     '2.2.3',
+31 silly addNameRange     '2.2.4',
+31 silly addNameRange     '2.3.0',
+31 silly addNameRange     '2.3.1',
+31 silly addNameRange     '2.3.2',
+31 silly addNameRange     '2.3.3',
+31 silly addNameRange     '2.3.4',
+31 silly addNameRange     '2.3.5',
+31 silly addNameRange     '2.3.6',
+31 silly addNameRange     '2.3.7',
+31 silly addNameRange     '2.3.8',
+31 silly addNameRange     '2.3.9',
+31 silly addNameRange     '2.3.10',
+31 silly addNameRange     '2.3.11',
+31 silly addNameRange     '2.3.12',
+31 silly addNameRange     '2.3.13',
+31 silly addNameRange     '2.4.0',
+31 silly addNameRange     '2.4.1',
+31 silly addNameRange     '2.4.2',
+31 silly addNameRange     '2.4.3',
+31 silly addNameRange     '2.4.4',
+31 silly addNameRange     '2.4.5',
+31 silly addNameRange     '2.4.6',
+31 silly addNameRange     '2.4.7',
+31 silly addNameRange     '2.4.8',
+31 silly addNameRange     '2.4.9',
+31 silly addNameRange     '2.4.10',
+31 silly addNameRange     '2.5.0',
+31 silly addNameRange     '2.5.1',
+31 silly addNameRange     '2.5.2',
+31 silly addNameRange     '2.5.3',
+31 silly addNameRange     '2.5.4',
+31 silly addNameRange     '2.5.5',
+31 silly addNameRange     '2.5.6',
+31 silly addNameRange     '2.5.7',
+31 silly addNameRange     '2.5.8',
+31 silly addNameRange     '2.5.9',
+31 silly addNameRange     '2.5.10',
+31 silly addNameRange     '2.5.11',
+31 silly addNameRange     '2.5.12',
+31 silly addNameRange     '2.5.13',
+31 silly addNameRange     '2.5.14',
+31 silly addNameRange     '2.6.0',
+31 silly addNameRange     '2.6.1',
+31 silly addNameRange     '2.6.2',
+31 silly addNameRange     '2.6.3',
+31 silly addNameRange     '2.6.4',
+31 silly addNameRange     '2.6.5',
+31 silly addNameRange     '2.6.6',
+31 silly addNameRange     '2.6.7',
+31 silly addNameRange     '2.6.8',
+31 silly addNameRange     '2.7.0',
+31 silly addNameRange     '2.7.1',
+31 silly addNameRange     '2.7.2',
+31 silly addNameRange     '2.7.4',
+31 silly addNameRange     '2.7.3',
+31 silly addNameRange     '3.0.0',
+31 silly addNameRange     '3.0.1',
+31 silly addNameRange     '3.0.2',
+31 silly addNameRange     '2.8.0',
+31 silly addNameRange     '3.0.3',
+31 silly addNameRange     '3.1.0',
+31 silly addNameRange     '2.8.1',
+31 silly addNameRange     '3.1.1',
+31 silly addNameRange     '2.8.2',
+31 silly addNameRange     '2.8.3',
+31 silly addNameRange     '2.9.0',
+31 silly addNameRange     '3.2.0',
+31 silly addNameRange     '2.9.1',
+31 silly addNameRange     '3.2.1',
+31 silly addNameRange     '2.9.2',
+31 silly addNameRange     '3.2.2',
+31 silly addNameRange     '3.3.0',
+31 silly addNameRange     '3.3.1',
+31 silly addNameRange     '2.9.3',
+31 silly addNameRange     '3.4.0',
+31 silly addNameRange     '2.9.4',
+31 silly addNameRange     '2.9.5',
+31 silly addNameRange     '3.5.0',
+31 silly addNameRange     '3.5.1',
+31 silly addNameRange     '3.5.2',
+31 silly addNameRange     '3.5.3',
+31 silly addNameRange     '2.9.6',
+31 silly addNameRange     '2.9.7',
+31 silly addNameRange     '3.5.4',
+31 silly addNameRange     '3.5.5',
+31 silly addNameRange     '2.9.8',
+31 silly addNameRange     '2.9.9',
+31 silly addNameRange     '3.5.6',
+31 silly addNameRange     '3.5.7',
+31 silly addNameRange     '3.5.8',
+31 silly addNameRange     '2.9.10',
+31 silly addNameRange     '3.5.9',
+31 silly addNameRange     '3.6.2',
+31 silly addNameRange     '3.5.10',
+31 silly addNameRange     '3.6.3',
+31 silly addNameRange     '3.5.11',
+31 silly addNameRange     '3.6.4',
+31 silly addNameRange     '3.6.5',
+31 silly addNameRange     '3.6.6',
+31 silly addNameRange     '3.6.7',
+31 silly addNameRange     '3.5.12',
+31 silly addNameRange     '3.6.8',
+31 silly addNameRange     '3.6.9',
+31 silly addNameRange     '3.6.10',
+31 silly addNameRange     '3.5.13',
+31 silly addNameRange     '3.5.14',
+31 silly addNameRange     '3.6.11',
+31 silly addNameRange     '3.6.12',
+31 silly addNameRange     '3.6.13',
+31 silly addNameRange     '3.6.14',
+31 silly addNameRange     '3.6.15',
+31 silly addNameRange     '3.5.15',
+31 silly addNameRange     '3.7.0',
+31 silly addNameRange     '3.6.16',
+31 silly addNameRange     '3.5.16',
+31 silly addNameRange     '3.6.17',
+31 silly addNameRange     '3.7.2',
+31 silly addNameRange     '3.0.0-alpha1',
+31 silly addNameRange     '3.0.0-alpha2',
+31 silly addNameRange     '3.0.0-rc0',
+31 silly addNameRange     '3.6.0-rc0',
+31 silly addNameRange     '3.6.0-rc1',
+31 silly addNameRange     '3.6.18',
+31 silly addNameRange     '3.7.3',
+31 silly addNameRange     '3.6.19',
+31 silly addNameRange     '3.6.20',
+31 silly addNameRange     '3.7.4',
+31 silly addNameRange     '3.8.0',
+31 silly addNameRange     '3.8.1',
+31 silly addNameRange     '3.8.2',
+31 silly addNameRange     '3.8.3',
+31 silly addNameRange     '3.8.4',
+31 silly addNameRange     '3.8.5',
+31 silly addNameRange     '3.8.6',
+31 silly addNameRange     '3.8.7',
+31 silly addNameRange     '3.8.8',
+31 silly addNameRange     '3.8.9',
+31 silly addNameRange     '3.8.10',
+31 silly addNameRange     '3.8.11',
+31 silly addNameRange     '3.9.0',
+31 silly addNameRange     '3.8.12',
+31 silly addNameRange     '3.8.13',
+31 silly addNameRange     '3.8.14',
+31 silly addNameRange     '3.8.15',
+31 silly addNameRange     '3.9.1',
+31 silly addNameRange     '3.8.16',
+31 silly addNameRange     '3.9.2',
+31 silly addNameRange     '3.8.17',
+31 silly addNameRange     '3.9.3',
+31 silly addNameRange     '3.8.18',
+31 silly addNameRange     '3.9.4' ] ]
+32 verbose addNamed [ 'mongoose', '3.8.18' ]
+33 verbose addNamed [ '3.8.18', '3.8.18' ]
+34 silly lockFile bce763e9-mongoose-3-8-18 mongoose@3.8.18
+35 verbose lock mongoose@3.8.18 /home/sshekhar/.npm/bce763e9-mongoose-3-8-18.lock
+36 silly lockFile 9f523dcf-org-mongoose-mongoose-3-8-18-tgz https://registry.npmjs.org/mongoose/-/mongoose-3.8.18.tgz
+37 verbose lock https://registry.npmjs.org/mongoose/-/mongoose-3.8.18.tgz /home/sshekhar/.npm/9f523dcf-org-mongoose-mongoose-3-8-18-tgz.lock
+38 verbose addRemoteTarball [ 'https://registry.npmjs.org/mongoose/-/mongoose-3.8.18.tgz',
+38 verbose addRemoteTarball   'f85fdb2c9ea503ce246a9dc12434e68a2df62472' ]
+39 info retry fetch attempt 1 at 16:42:41
+40 verbose fetch to= /tmp/npm-4332-DNfy8UiN/registry.npmjs.org/mongoose/-/mongoose-3.8.18.tgz
+41 http GET https://registry.npmjs.org/mongoose/-/mongoose-3.8.18.tgz
+42 http 200 https://registry.npmjs.org/mongoose/-/mongoose-3.8.18.tgz
+43 silly lockFile 9f523dcf-org-mongoose-mongoose-3-8-18-tgz https://registry.npmjs.org/mongoose/-/mongoose-3.8.18.tgz
+44 silly lockFile 9f523dcf-org-mongoose-mongoose-3-8-18-tgz https://registry.npmjs.org/mongoose/-/mongoose-3.8.18.tgz
+45 silly lockFile bce763e9-mongoose-3-8-18 mongoose@3.8.18
+46 silly lockFile bce763e9-mongoose-3-8-18 mongoose@3.8.18
+47 silly lockFile 3bb0fc31-mongoose mongoose@
+48 silly lockFile 3bb0fc31-mongoose mongoose@
+49 error Error: EACCES, mkdir '/home/sshekhar/.npm/mongoose/3.8.18'
+49 error  { [Error: EACCES, mkdir '/home/sshekhar/.npm/mongoose/3.8.18']
+49 error   errno: 3,
+49 error   code: 'EACCES',
+49 error   path: '/home/sshekhar/.npm/mongoose/3.8.18',
+49 error   parent: 'odp' }
+50 error Please try running this command again as root/Administrator.
+51 error System Linux 3.13.0-39-generic
+52 error command "/usr/bin/node" "/usr/bin/npm" "install" "mongoose"
+53 error cwd /home/sshekhar/opendataplus
+54 error node -v v0.10.33
+55 error npm -v 1.4.28
+56 error path /home/sshekhar/.npm/mongoose/3.8.18
+57 error code EACCES
+58 error errno 3
+59 error stack Error: EACCES, mkdir '/home/sshekhar/.npm/mongoose/3.8.18'
+60 verbose exit [ 3, true ]

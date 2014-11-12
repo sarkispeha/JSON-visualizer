@@ -10,10 +10,17 @@ var users = require('./routes/users');
 var datasetsRoutes = require('./routes/datasetsRoutes');
 var elementsRoutes = require('./routes/elementsRoutes');
 
-var mongo = require('mongoskin');
-var db = mongo.db("mongodb://localhost:27017/opendataplus",{native_parser:true});
-
 var app = express();
+var mongo = require('mongoskin');
+
+// Setup Database
+//var db = mongo.db("mongodb://localhost:27017/opendataplus",{native_parser:true});
+var db = mongo.db("mongodb://ds051970.mongolab.com:51970/odp",{native_parser:true});
+/*
+db.authenticate("odp", "Hack4art", function(error, result){
+                 console.log("RESULT FROM DB authentication:", error, result)
+               });
+*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
