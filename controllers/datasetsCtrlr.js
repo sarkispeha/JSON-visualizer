@@ -40,7 +40,7 @@ Datasets.prototype.find = function(db, queryObject, callback) {
       db.collection("datasets")
           .find(queryObject.select, queryObject.fields, queryObject.options)
           .toArray(function(err, result) {
-cons  ole.log("From Datasets.find:", queryObject.select, err, result)
+console.log("From Datasets.find:", queryObject.select, err, result)
               if (err) throw err;
               callback(result);
           });

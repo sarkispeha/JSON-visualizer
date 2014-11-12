@@ -40,7 +40,7 @@ Users.prototype.find = function(db, queryObject, callback) {
       db.collection("users")
           .find(queryObject.select, queryObject.fields, queryObject.options)
           .toArray(function(err, result) {
-cons  ole.log("From Users.find:", queryObject.select, err, result)
+console.log("From Users.find:", queryObject.select, err, result)
               if (err) throw err;
               callback(result);
           });
