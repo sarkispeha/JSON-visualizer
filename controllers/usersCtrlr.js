@@ -1,5 +1,5 @@
 /**
- * Created by cellis on 10/13/14.
+ * Created by sshekhar22 on 11/11/14.
  */
 
 /**
@@ -13,13 +13,13 @@ var ObjectID = require('mongodb').ObjectID;
 //  none
 
 //constructor
-function Datasets() {
+function Users() {
 };
 
 /*
  * gets all elements from a collection
  */
-Datasets.prototype.find = function(db, queryObject, callback) {
+Users.prototype.find = function(db, queryObject, callback) {
     var self = this;
 
     //default query to max 100 results
@@ -28,19 +28,19 @@ Datasets.prototype.find = function(db, queryObject, callback) {
     if (!db.auth) {
       db.authenticate("odp", "Hack4art", function(error, result){
                        console.log("RESULT FROM DB authentication:", error, result)
-                       db.collection("datasets")
+                       db.collection("users")
                            .find(queryObject.select, queryObject.fields, queryObject.options)
                            .toArray(function(err, result) {
-                             console.log("From Datasets.find:", queryObject.select, err, result)
+                             console.log("From Users.find:", queryObject.select, err, result)
                                          if (err) throw err;
                                          callback(result);
                                      });
                      });
     } else {
-      db.collection("datasets")
+      db.collection("users")
           .find(queryObject.select, queryObject.fields, queryObject.options)
           .toArray(function(err, result) {
-cons  ole.log("From Datasets.find:", queryObject.select, err, result)
+cons  ole.log("From Users.find:", queryObject.select, err, result)
               if (err) throw err;
               callback(result);
           });
@@ -52,38 +52,38 @@ cons  ole.log("From Datasets.find:", queryObject.select, err, result)
  * supports inserting url-form-encoded or json formats
  * TODO:  add url-form-encoded support
  */
-Datasets.prototype.insert = function(db, user, element, callback) {
+Users.prototype.insert = function(db, element, callback) {
 
-    //verify current user.organization has datasets author role
-    if (!user.isDatasetAuthor) {
-        throw new Error("User's current organization does not have the datasets author role.");
+    // verify authorization for creating a new user
+    if (false) {
+        throw new Error("No permission to create a new user.");
     }
 
-    //create aq new dataset object from the request
+    //create a new user object from the request
     //TODO
 
     console.log("Element: ", element);
 
     //insert the new dataset
-    db.collection("datasets").insert(element, function(err, results) {
+    db.collection("users").insert(element, function(err, results) {
         if (err) {
-            console.log('yikes, error on dataset insert: ' + err);
+            console.log('yikes, error on user insert: ' + err);
             throw err;
         }
-        console.log('Inserted element into datasets!', results[0]._id);
+        console.log('Inserted element into user!', results[0]._id);
         callback(results[0]._id);
     });
 };
 
 /*
- * updates an existing dataset.  update overwrites the existing dataset unless
+ * updates an existing user.  update overwrites the existing user unless
  * fields are specified in the url, in which case, only the specified field is overwritten.
  */
-Datasets.prototype.update = function(db, body, elementId, fieldpath, callback) {
+Users.prototype.update = function(db, body, elementId, fieldpath, callback) {
     var self = this;
 
     //TODO:  Construct full object with all metadata, data, and spaces.
-    //body = DatasetModel(body).getValidatedDataset();
+    //body = UserModel(body).getValidatedDataset();
 
     //we are adding a field to the top of
     var selector = {"_id": new ObjectID(elementId)};
@@ -120,7 +120,7 @@ Datasets.prototype.update = function(db, body, elementId, fieldpath, callback) {
     console.log("DEBUG: selector: " + selector);
 
     //update the element with the setter constructed.
-    db.collection("datasets").update(selector, update, function(err, results) {
+    db.collection("users").update(selector, update, function(err, results) {
         if (err) throw err;
         console.log("DEBUG: after update: ", err, results);
         callback(elementId);
@@ -129,15 +129,15 @@ Datasets.prototype.update = function(db, body, elementId, fieldpath, callback) {
 
 
 //remove an element by its ID.
-Datasets.prototype.remove = function(db, elementId, callback) {
+Users.prototype.remove = function(db, elementId, callback) {
 
     var selector = {"_id": new ObjectID(elementId)};
 
-    db.collection("datasets").remove(selector, function(err, result) {
+    db.collection("users").remove(selector, function(err, result) {
         console.log("Remove result: ", result);
         callback(result);
     });
 };
 
 //export the class
-module.exports = Datasets;
+module.exports = Users;
