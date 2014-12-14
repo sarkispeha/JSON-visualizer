@@ -1,0 +1,9 @@
+.child {
+	margin-left: 2em;
+	font-weight: normal;
+	/*display: none;*/
+}
+
+.parent {
+	font-weight: bold;
+}

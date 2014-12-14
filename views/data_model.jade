@@ -1,0 +1,59 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		title data_model
+		link(rel="stylesheet", type="text/css", href="stylesheets/data_model_style.css")
+	body
+		h1 Data Model
+		br
+		div JSON
+			div.parent dataset
+				//- for key in test_JSON
+				//- -var n = 0
+				//- ul
+				//- 	while n < #{Object.keys(test_JSON).length}
+				//- 		li.child #{Object.keys(test_JSON)[n]}
+				//- 		- n ++
+
+				each val in #{Object.keys(test_JSON)}
+					li val
+					
+					//- all this stuff works
+					//- li.child #{Object.keys(test_JSON)[0]}
+					//- li.child #{Object.keys(test_JSON).length}
+					//- li.child #{Object.keys(test_JSON.meta).length}
+
+				
+				div.child _ID: #{test_JSON.meta._id}
+				div.child name : art
+				div.child organization : orgID
+				div.child status : published
+				div.child timeToLive:  
+				div.child managingUsers:
+					div.child userID1
+					div.child userID2
+					div.child ...
+				div.child managingApp
+					div.child appID1
+					div.child appID2
+					div.child ...
+				div.child elementCount:
+				div.child elementCountActive:
+				div.child createdTS:
+				div.child numberUpdates:
+				div.child updatedTS:
+				div.child eventLog:
+					div.child event1
+					div.child event2
+					div.child ...
+				div.child indices:
+					div.child index1
+					div.child index2
+					div.child ...
+
+
+		script(src='//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js')
+		script(src='data_model.js')
+			//- TEMPLATE
+		script#startData(type='text-handlebars-template')
