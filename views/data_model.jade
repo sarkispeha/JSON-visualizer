@@ -8,13 +8,12 @@ html(lang='en')
 		h1 Data Model
 		br
 		div JSON
-			-var data = data
-			div.parent dataset
-				each val, index in Object.keys(test_JSON)
-					-var keyName = val
-					div.child= val + index
-		
-						//- each val, indx in keyName
+			div#myDiv.child
+			//- -var data = data
+			//- div.parent dataset
+			//- each val, index in Object.keys(test_JSON)
+			//- -var keyName = val
+				//- each val, indx in keyName
 						//- 	p= keyName
 						//- 	div.child= val
 					//- all this stuff works
@@ -53,6 +52,7 @@ html(lang='en')
 				//- 	div.child ...
 
 		script(type="text/javascript") var data = !{JSON.stringify(test_JSON)};
+		script(src='scripts/main.js')
 		script(src='//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js')
 		script(src='data_model.js')
 			//- TEMPLATE
