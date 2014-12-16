@@ -1,6 +1,6 @@
 
 /*helper function to determine if more
-for in loops must be run*/	
+for loops must be run*/	
 var hasMoreKeys = function(obj) {
 	    try {
 	    	if(Object.keys(obj));
@@ -10,9 +10,29 @@ var hasMoreKeys = function(obj) {
 		}
 	if(Object.keys(obj).length === 0) return false;
     return true;
-    // return obj.hasOwnProperty();
-    // && obj[key] === value;
 	};
+
+var showStuff = function(e) {
+    e.stopPropagation();
+    var currentID = this.id;
+    var childrenArr = this.children;
+    if(childrenArr.length>0){
+    	console.log(childrenArr);
+    	console.log(currentID);
+    	console.log(document.getElementById(currentID));
+    	for(var i =0; i<childrenArr.length; i++){
+    		var childID = childrenArr[i].id;
+    		document.getElementById(childID).style.display = 'block';
+    	}
+    	// document.getElementById(currentID).style.display = 'none';
+    }
+    // // hide the lorem ipsum text
+    // document.getElementById(text).style.display = 'none';
+    // // hide the link
+    // btn.style.display = 'none';
+    
+};
+document.getElementById('myDiv').onclick = showStuff;
 
 var appendFunc = function(){
 
@@ -23,45 +43,44 @@ var littleFunc = function(littleObject, divID){
 		for(var i=0; i<Object.keys(littleObject).length; i++) {
 			var keyName = Object.keys(littleObject)[i];/*iterating through first layer of keys, keyName is the i-th index of the returned array*/
 			var keyNameValue = littleObject[keyName];
-			// console.log(keyName);
-			var appendDIV = document.createElement('DIV');
+			var appendChildDIV = document.createElement('DIV');
 			var kNV = keyNameValue.toString();
-			console.log(typeof(kNV));
 			if(kNV == '[object Object]') kNV = '';
 			var t = document.createTextNode(keyName  + ' : ' + kNV);
-			appendDIV.appendChild(t);
-			appendDIV.className = 'child';
-			appendDIV.id = keyName;
-			document.getElementById(divID).appendChild(appendDIV);
+			appendChildDIV.appendChild(t);
+			appendChildDIV.className = 'child';
+			appendChildDIV.id = keyName;
+			document.getElementById(divID).appendChild(appendChildDIV);
+			appendChildDIV.onclick = showStuff;
+			console.log('divID :', divID);
+			document.getElementById(divID).style.display = 'none';
 			if (hasMoreKeys(littleObject[keyName])) {
-				littleFunc(littleObject[keyName], appendDIV.id);
-			} else{
-				// console.log('end of littleFunc');
-				// console.log(littleObject)
-				// for(val in littleObject)
-				// 	var keyValue = littleObject[val];
-				// 	console.log(keyValue);
-			}
-		}//end of for loop
-	}//end of if statement
-};//end littleFunc
+				littleFunc(littleObject[keyName], appendChildDIV.id);
+				}
+			}//end of for loop
+		}//end of if statement
+	};//end littleFunc
 
 var bigFunc = function(calledObj){
 	if(hasMoreKeys(calledObj)){
 		for(var i=0; i<Object.keys(calledObj).length; i++) {
 			var keyName = Object.keys(calledObj)[i];/*iterating through first layer of keys, keyName is the i-th index of the returned array*/
-			console.log(keyName);
+			// console.log(keyName);
 			var appendDIV = document.createElement('DIV');
 			var t = document.createTextNode(keyName);
 			appendDIV.appendChild(t);
 			appendDIV.className = 'child';
 			appendDIV.id = keyName;
 			document.getElementById("myDiv").appendChild(appendDIV);
+			document.getElementById(appendDIV.id).style.display = 'block';
+			appendDIV.onclick = showStuff;
+			console.log(appendDIV);
 			if (hasMoreKeys(calledObj[keyName])) {
 				littleFunc(calledObj[keyName], appendDIV.id);
 				}	
 			}//end of for loop
-			console.log(i)
+			// console.log(i)
 		}//end of first if
-	}//end of bigFunc
+	};//end of bigFunc
 
+bigFunc(data);
