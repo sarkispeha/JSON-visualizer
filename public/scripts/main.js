@@ -22,18 +22,26 @@ var littleFunc = function(littleObject, divID){
 	if(hasMoreKeys(littleObject)){
 		for(var i=0; i<Object.keys(littleObject).length; i++) {
 			var keyName = Object.keys(littleObject)[i];/*iterating through first layer of keys, keyName is the i-th index of the returned array*/
+			var keyNameValue = littleObject[keyName];
 			console.log(keyName);
 			var appendDIV = document.createElement('DIV');
-			var t = document.createTextNode(keyName);
+			var kNV = keyNameValue.toString();
+			var t = document.createTextNode(keyName  + ' : ' + kNV);
 			appendDIV.appendChild(t);
 			appendDIV.className = 'child';
 			appendDIV.id = keyName;
 			document.getElementById(divID).appendChild(appendDIV);
 			if (hasMoreKeys(littleObject[keyName])) {
 				littleFunc(littleObject[keyName], appendDIV.id);
+			} else{
+				console.log('end of littleFunc');
+				console.log(littleObject)
+				// for(val in littleObject)
+				// 	var keyValue = littleObject[val];
+				// 	console.log(keyValue);
 			}
-		}
-	}
+		}//end of for loop
+	}//end of if statement
 };//end littleFunc
 
 var bigFunc = function(calledObj){
@@ -50,7 +58,8 @@ var bigFunc = function(calledObj){
 			if (hasMoreKeys(calledObj[keyName])) {
 				littleFunc(calledObj[keyName], appendDIV.id);
 				}	
-			}console.log(i)
+			}//end of for loop
+			console.log(i)
 		}//end of first if
 	}//end of bigFunc
 
