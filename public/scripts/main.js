@@ -16,29 +16,25 @@ var showStuff = function(e) {
     e.stopPropagation();
     var currentID = this.id;
     var childrenArr = this.children;
-    if(childrenArr.length>0){
-    	console.log(childrenArr);
-    	console.log(currentID);
-    	console.log(document.getElementById(currentID));
+    if(childrenArr.length>0 && document.getElementById(childrenArr[0].id).style.display === 'none'){
     	for(var i =0; i<childrenArr.length; i++){
     		var childID = childrenArr[i].id;
     		document.getElementById(childID).style.display = 'block';
     	}
-    	// document.getElementById(currentID).style.display = 'none';
-    }
-    // // hide the lorem ipsum text
-    // document.getElementById(text).style.display = 'none';
-    // // hide the link
-    // btn.style.display = 'none';
-    
-};
+    }else if(document.getElementById(currentID).style.display === 'block'){
+    	for (var i = 0; i < childrenArr.length; i++) {
+    		var childID = childrenArr[i].id;
+    		// console.log('minifier firing');
+    		document.getElementById(childID).style.display = 'none';
+    	}
+    }    
+};//end of showStuff
 document.getElementById('myDiv').onclick = showStuff;
 
-var appendFunc = function(){
-
+var appendFunc = function(){//eventually write this to save some space
 }
 
-var littleFunc = function(littleObject, divID){
+var littleFunc = function(littleObject, parentDivID){
 	if(hasMoreKeys(littleObject)){
 		for(var i=0; i<Object.keys(littleObject).length; i++) {
 			var keyName = Object.keys(littleObject)[i];/*iterating through first layer of keys, keyName is the i-th index of the returned array*/
@@ -49,11 +45,12 @@ var littleFunc = function(littleObject, divID){
 			var t = document.createTextNode(keyName  + ' : ' + kNV);
 			appendChildDIV.appendChild(t);
 			appendChildDIV.className = 'child';
-			appendChildDIV.id = keyName;
-			document.getElementById(divID).appendChild(appendChildDIV);
+			appendChildDIV.id = keyName + parentDivID;
+			document.getElementById(parentDivID).appendChild(appendChildDIV);
 			appendChildDIV.onclick = showStuff;
-			console.log('divID :', divID);
-			document.getElementById(divID).style.display = 'none';
+			// console.log('parentDivID :', parentDivID);
+			// console.log('appendChildDIV.id : ', appendChildDIV.id);
+			document.getElementById(appendChildDIV.id).style.display = 'none';
 			if (hasMoreKeys(littleObject[keyName])) {
 				littleFunc(littleObject[keyName], appendChildDIV.id);
 				}
@@ -72,7 +69,7 @@ var bigFunc = function(calledObj){
 			appendDIV.className = 'child';
 			appendDIV.id = keyName;
 			document.getElementById("myDiv").appendChild(appendDIV);
-			document.getElementById(appendDIV.id).style.display = 'block';
+			document.getElementById(appendDIV.id).style.display = 'none';
 			appendDIV.onclick = showStuff;
 			console.log(appendDIV);
 			if (hasMoreKeys(calledObj[keyName])) {
