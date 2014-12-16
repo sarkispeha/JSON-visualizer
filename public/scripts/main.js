@@ -23,9 +23,11 @@ var littleFunc = function(littleObject, divID){
 		for(var i=0; i<Object.keys(littleObject).length; i++) {
 			var keyName = Object.keys(littleObject)[i];/*iterating through first layer of keys, keyName is the i-th index of the returned array*/
 			var keyNameValue = littleObject[keyName];
-			console.log(keyName);
+			// console.log(keyName);
 			var appendDIV = document.createElement('DIV');
 			var kNV = keyNameValue.toString();
+			console.log(typeof(kNV));
+			if(kNV == '[object Object]') kNV = '';
 			var t = document.createTextNode(keyName  + ' : ' + kNV);
 			appendDIV.appendChild(t);
 			appendDIV.className = 'child';
@@ -34,8 +36,8 @@ var littleFunc = function(littleObject, divID){
 			if (hasMoreKeys(littleObject[keyName])) {
 				littleFunc(littleObject[keyName], appendDIV.id);
 			} else{
-				console.log('end of littleFunc');
-				console.log(littleObject)
+				// console.log('end of littleFunc');
+				// console.log(littleObject)
 				// for(val in littleObject)
 				// 	var keyValue = littleObject[val];
 				// 	console.log(keyValue);
