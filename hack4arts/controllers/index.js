@@ -7,13 +7,15 @@ var indexController = {
 		res.render('index');
 	},
 	data_model: function(req, res){
-		api.geoData(req, res);
-		var geo = req.api.geoData;
-		console.log('geoData from index :', geo);
-		console.log('this console.log is in the index : ', api.geoData());
-		res.render('data_model'/*, {
-			test_JSON : test_JSON
-		}*/);
+		api.geoData(req, res, function(geoData) {
+			
+			console.log('this is from index :', res)
+			console.log('geoData from index :', geoData);
+			res.render('data_model', {
+				test_JSON : geoData
+			});
+		});
+
 
 		// res.send(geo);
 	}
