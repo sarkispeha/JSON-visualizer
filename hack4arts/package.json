@@ -1,8 +1,0 @@
-{
-	"dependencies": {
-		"express": "^4",
-		"jade": "^1",
-		"body-parser": "^1",
-		"geocoder": "~0.2.0"
-	}
-}

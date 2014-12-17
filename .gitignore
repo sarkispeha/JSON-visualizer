@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -35,3 +36,6 @@ node_modules
 .rebooted
 .DS*
 
+=======
+node_modules
+>>>>>>> 34970ed4054ca19f3bb26b39fb3756a279864b52

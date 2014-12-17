@@ -32,18 +32,22 @@ var showStuff = function(e) {
     }    
 };//end of showStuff
 
-
-var appendFunc = function(){//eventually write this to save some space
+var appendFunc = function(){
+//eventually write this to follow DRY practices
 }
 
 var littleFunc = function(littleObject, parentDivID){
 	if(hasMoreKeys(littleObject)){
 		for(var i=0; i<Object.keys(littleObject).length; i++) {
+			console.log(parentDivID);
 			var keyName = Object.keys(littleObject)[i];/*iterating through first layer of keys, keyName is the i-th index of the returned array*/
 			var keyNameValue = littleObject[keyName];
 			var appendChildDIV = document.createElement('DIV');
 			var kNV = keyNameValue.toString();
-			if(kNV == '[object Object]') kNV = '';
+			console.log(keyNameValue);
+			console.log(Array.isArray(keyNameValue));
+			if(kNV == '[object Object]' || Array.isArray(keyNameValue)) kNV = '';
+			console.log(kNV);
 			var t = document.createTextNode(keyName  + ' : ' + kNV);
 			appendChildDIV.appendChild(t);
 			appendChildDIV.className = 'indent';
@@ -65,22 +69,36 @@ var bigFunc = function(calledObj){
 		for(var i=0; i<Object.keys(calledObj).length; i++) {
 			var keyName = Object.keys(calledObj)[i];/*iterating through first layer of keys, keyName is the i-th index of the returned array*/
 			// console.log(keyName);
-			var appendDIV = document.createElement('DIV');
-			var t = document.createTextNode(keyName);
-			appendDIV.appendChild(t);
-			appendDIV.className = 'indent';
-			appendDIV.id = keyName;
-			document.getElementById("myDiv").appendChild(appendDIV);
-			document.getElementById(appendDIV.id).style.display = 'none';
-			appendDIV.onclick = showStuff;
-			console.log(appendDIV);
 			if (hasMoreKeys(calledObj[keyName])) {
+				var appendDIV = document.createElement('DIV');
+				appendDIV.id = keyName;
+				var t = document.createTextNode(keyName);
+				appendDIV.appendChild(t);
+				appendDIV.className = 'indent';
+				document.getElementById("myDiv").appendChild(appendDIV);
+				document.getElementById(appendDIV.id).style.display = 'none';
+				appendDIV.onclick = showStuff;
+				// console.log(appendDIV);
+				//create and append DIV, then fire littleFunc
+				console.log('littleFunc firing');
 				littleFunc(calledObj[keyName], appendDIV.id);
-				}	
+			}else{
+				//create textNode with keyValue
+				var appendDIV = document.createElement('DIV');
+				appendDIV.id = keyName;
+				console.log('littleFunc not firing');
+				console.log(keyName);
+				var t = document.createTextNode(keyName + ' : ' + calledObj[keyName]);
+				appendDIV.appendChild(t);
+				appendDIV.className = 'indent';
+				document.getElementById("myDiv").appendChild(appendDIV);
+				document.getElementById(appendDIV.id).style.display = 'none';
+				appendDIV.onclick = showStuff;
+			}	
 			}//end of for loop
 			// console.log(i)
 		}//end of first if
 	};//end of bigFunc
 
-bigFunc(data);
+bigFunc(data);//passes object through funcs on page load
 document.getElementById('myDiv').onclick = showStuff;// initiates hide/show
