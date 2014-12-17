@@ -26,3 +26,12 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+#webstorm files
+.idea
+
+#environment files
+.env
+.rebooted
+.DS*
+
